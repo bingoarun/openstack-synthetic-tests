@@ -7,7 +7,7 @@ from glanceclient.v2 import client as glance_client
 
 
 Config = ConfigParser.ConfigParser()
-config_path="../conf/config.ini"
+config_path="../../conf/config.ini"
 Config.read(config_path)
 version = Config.get('ApplicationSettings','VERSION')
 auth_url = Config.get('ApplicationSettings','auth_url')
