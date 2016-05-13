@@ -16,3 +16,6 @@ def imageCreate(name="SynthTestImage",is_public='False', disk_format='qcow2', co
 def imageList():
 	return list(glance.images.list())[0:]
 
+def imageGet(image_id):
+    return glance.images.get(image_id)
+

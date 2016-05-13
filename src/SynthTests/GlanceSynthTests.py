@@ -1,29 +1,35 @@
 from src.SynthCore import GlanceSynthTests
+from src.OutputWriter import NagiosCode
+from src.OutputWriter import passiveCheckWriter
+
+image_id=None
 
 def testImageCreate():
-    status_msg=None
-    status=None
     try:
+        global image_id
         image_id= GlanceSynthTests.imageCreate()
-        status="SUCCESS"
+        status=NagiosCode.var0.value
         status_msg="Image successfully created"
     except:
-        status="ERROR"
+        status=NagiosCode.var2.value
         status_msg="Some error in creating glance image"
-    print status, status_msg
+    passiveCheckWriter('glance','glance_image_create',status,status_msg)
 
 def testImageList():
-    status_msg=None
-    status=None
     try:
         image_list=GlanceSynthTests.imageList()
-        status = "SUCCESS"
-        status_msg = "Image list is successful"
+        status = NagiosCode.var0.value
+        status_msg = "Image successfully listed"
     except:
-        status = "ERROR"
-        status_msg = "Some error in listing glance image"
-    print status, status_msg
+        status = NagiosCode.var2.value
+        status_msg = "Some error in listing glance images"
+    passiveCheckWriter('glance', 'glance_image_list', status, status_msg)
 
 
+
+#Test runs
 testImageCreate()
 testImageList()
+testImageList()
+testImageList()
+#print GlanceSynthTests.imageGet(image_id)
