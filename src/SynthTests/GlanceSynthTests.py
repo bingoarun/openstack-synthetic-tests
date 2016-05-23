@@ -28,8 +28,9 @@ def testImageList():
 
 
 #Test runs
-testImageCreate()
-testImageList()
-testImageList()
-testImageList()
-#print GlanceSynthTests.imageGet(image_id)
+def runAllTests():
+    testImageCreate()
+    testImageList()
+
+if __name__ == "__main__":
+    runAllTests()
