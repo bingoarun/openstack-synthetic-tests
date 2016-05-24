@@ -1,2 +1,2 @@
 # openstack-synthetic-tests
-Set of Openstack synthetic tests ready to be consumed for Nagios passive checks
+Set of Openstack synthetic tests written in Python ready to be consumed for Nagios passive checks
